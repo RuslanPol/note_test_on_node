@@ -1,9 +1,6 @@
 const p = document.createElement('p');
 const url = new URL(window.location.href);
 const noteId = url.searchParams.get('id');
-//const textNode = document.createTextNode(noteId);
-// p.appendChild(textNode);
-// document.body.appendChild(p)
 const form = document.getElementById('noteForm1');
 const div = document.getElementById('div1');
 
