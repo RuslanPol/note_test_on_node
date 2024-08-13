@@ -1,3 +1,4 @@
+Локальный сервер и БД
 загрузить postgreSQL
 зайти в postgreSQL
 зайти в  папку .bin
@@ -11,5 +12,5 @@ notes_db=# \dt
 notes_db=#  сюда копируется  файл database.sql
 notes_db=# select * from notes;
 
-
-
+На Render.com
+https://note-test-on-node.onrender.com
