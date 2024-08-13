@@ -1,0 +1,6 @@
+create TABLE notes(
+id SERIAL PRIMARY KEY,
+context TEXT NOT NULL,
+ status_note VARCHAR(255),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
