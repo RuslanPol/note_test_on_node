@@ -7,7 +7,7 @@ form.addEventListener('submit', async (event) => {
     const text = document.getElementById('noteText').value;
     const noteStatus = document.getElementById('noteStatus').value;
     console.log(text)
-    const response = await fetch('http://localhost:8080/api/notes', {
+    const response = await fetch('/api/notes', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ form.addEventListener('submit', async (event) => {
 });
 
 async function loadNotes() {
-    const response = await fetch('http://localhost:8080/api/notes');
+    const response = await fetch('/api/notes');
 
     const notes = await response.json();
     notes.forEach(note => {
@@ -40,7 +40,7 @@ async function loadNotes() {
         infoLink.textContent = `INFO`
         infoLink.href = `note.html?id=${note.id}`;
         console.log(infoLink.href);
-        infoLink.target = `_blank`
+
         listItem.appendChild(infoLink)
         notesList.appendChild(listItem)
     });

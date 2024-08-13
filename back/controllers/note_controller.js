@@ -45,7 +45,8 @@ class NoteController {
         const {context,status_note} = req.body;
         try {
 
-               const note =await db.query(`UPDATE notes SET context=$1,status_note=$2 WHERE id = $3 RETURNING * `, [context,status_note,req.params.id]);
+               const note =await db.query(`UPDATE notes SET context=$1,status_note=$2 WHERE id = $3 RETURNING * `,
+                   [context,status_note,req.params.id]);
 
             res.json(note.rows[0]);
         }
