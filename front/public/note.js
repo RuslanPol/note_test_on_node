@@ -5,7 +5,7 @@ const form = document.getElementById('noteForm1');
 const div = document.getElementById('div1');
 
 async function loadNote() {
-    const response = await fetch(`http://localhost:8080/api/notes/${noteId}`);
+    const response = await fetch(`/api/notes/${noteId}`);
     const note = await response.json();
     console.log(note);
     const listItem = document.createElement('p');
@@ -21,7 +21,7 @@ const button = document.getElementById('but')
 const buttonDel = document.getElementById('butDel')
 buttonDel.addEventListener('click', async (event) => {
     event.preventDefault();
-    const response = await fetch(`http://localhost:8080/api/notes/${noteId}`, {
+    const response = await fetch(`/api/notes/${noteId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ form.addEventListener('submit', async (event) => {
     const text = document.getElementById('noteText').value;
     const noteStatus = document.getElementById('noteStatus').value;
 
-    const response = await fetch(`http://localhost:8080/api/notes/${noteId}`, {
+    const response = await fetch(`/api/notes/${noteId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
