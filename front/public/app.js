@@ -1,13 +1,11 @@
-
 const form = document.getElementById('noteForm');
 const notesList = document.getElementById('notesList');
-
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = document.getElementById('noteText').value;
     const noteStatus = document.getElementById('noteStatus').value;
     console.log(text)
-    const response = await fetch('/api/notes', {
+    const response = await fetch(`http://localhost:8080/api/notes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,12 +21,11 @@ form.addEventListener('submit', async (event) => {
     notesList.appendChild(listItem);
     form.reset();
     location.reload();
-     await loadNotes();
-
+    await loadNotes();
 });
 
 async function loadNotes() {
-    const response = await fetch('/api/notes');
+    const response = await fetch(`http://localhost:8080/api/notes`);
 
     const notes = await response.json();
     notes.forEach(note => {
@@ -36,7 +33,7 @@ async function loadNotes() {
         const listItem = document.createElement('li');
 
         listItem.innerText =
-            `Context: ${note.context}\n`;
+            `СОДЕРЖАНИЕ: ${note.context}\n`;
         infoLink.textContent = `INFO`
         infoLink.href = `note.html?id=${note.id}`;
         console.log(infoLink.href);
@@ -47,6 +44,6 @@ async function loadNotes() {
 
 }
 
-    loadNotes().then(r => console.log(r));
+loadNotes().then(r => console.log(r));
 
 
