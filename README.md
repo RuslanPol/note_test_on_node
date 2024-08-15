@@ -1,21 +1,20 @@
 # Локальный сервер и БД
-1. загрузить postgreSQL
-2. войти в postgreSQL
-3. войти в  папку .bin
-4. открыть PowerShell
-5. PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres
-6. Пароль пользователя postgres:(пароль от postgres в db.js файле)
-7. postgres=# create database notes_db;
-8. postgres=# \l
-9. postgres=# \connect notes_db;
-10. notes_db=# \dt
-11. Прописываем в терминале: npm run start
-12. Прописываем в браузере:
+1. установить postgreSQL
+2. войти в папку postgreSQL папку .bin
+3. открыть PowerShell
+4. PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres
+5. Пароль пользователя postgres:(пароль от postgres в db.js файле)
+6. postgres=# create database notes_db;
+7. postgres=# \l
+8. postgres=# \connect notes_db;
+9. notes_db=# \dt
+10. Прописываем в терминале: npm run start
+11. Прописываем в браузере:
   'http://localhost:8080/index.html'
 
 
 #  На Render.com
-https://note-test-on-node.onrender.com
+*  ссылка на сервер на Render.com https://note-test-on-node.onrender.com
 *  Шаг 1: Создание аккаунта на Render.com  
 Зарегистрируйтесь на Render.com, если у вас еще нет аккаунта.
 
