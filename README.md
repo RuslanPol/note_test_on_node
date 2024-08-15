@@ -9,9 +9,9 @@
 8. postgres=# \l
 9. postgres=# \connect notes_db;
 10. notes_db=# \dt
-11. В файлах app.js и note.js  /front/public  в fetch запросах
-прописать  вместо '/api/notes' полный адрес:
-  'http://localhost:8080/api/notes'
+11. Прописываем в терминале: npm run start
+12. Прописываем в браузере:
+  'http://localhost:8080/index.html'
 
 
 #  На Render.com
