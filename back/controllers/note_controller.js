@@ -1,7 +1,7 @@
 
 
 
-const db = require('../db');
+import db from '../db'
 
 class NoteController {
 
