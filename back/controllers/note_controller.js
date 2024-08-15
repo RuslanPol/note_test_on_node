@@ -1,7 +1,4 @@
-
-
-
-import db from '../db'
+import db from '../db.js'
 
 class NoteController {
 
@@ -68,4 +65,4 @@ class NoteController {
 
 }
 
-module.exports =  new NoteController();
+export default new NoteController();

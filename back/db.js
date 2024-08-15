@@ -1,18 +1,21 @@
-import {Pool} from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
+
 // const pool = new Pool({
 //     user:"postgres",
-//     password:"1234",
+//     password:"root",
 //     host:"localhost",
 //     port:5432,
 //     database:"notes_db"
 // })
-// module.exports = pool;
+//
 console.log(process.env.DATABASE_URL)
+const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL
-    // ssl: {
-    //     rejectUnauthorized: false
-    // }
+     // ssl: {
+     //     rejectUnauthorized: false
+     // }
 });
 
 // Создание таблицы, если она не существует
@@ -29,4 +32,4 @@ pool.query(createTableQuery)
     .then(res => console.log('Table is successfully created'))
     .catch(err => console.error('Error creating table', err.stack));
 
-module.exports = pool;
+export default pool
