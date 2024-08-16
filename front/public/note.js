@@ -11,7 +11,7 @@ async function loadNote() {
     const listItem = document.createElement('p');
     listItem.innerText =
         `id: ${note.id}
-           СОДЕРЖАНИЕ: ${note.context}
+           СОДЕРЖАНИЕ: ${note.content}
            СТАТУС: ${note.status_note}
            ВРЕМЯ СОЗДАНИЯ:${note.created_at}\n`;
     div.appendChild(listItem)
@@ -58,7 +58,7 @@ form.addEventListener('submit', async (event) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({context: text, status_note: noteStatus})
+        body: JSON.stringify({content: text, status_note: noteStatus})
     });
 
     const listItem = await response.json();

@@ -11,7 +11,7 @@ form.addEventListener('submit', async (event) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({context: text, status_note: noteStatus})
+        body: JSON.stringify({content: text, status_note: noteStatus})
     });
 
     const newNote = await response.json();
@@ -30,7 +30,7 @@ form.addEventListener('submit', async (event) => {
     const listItem = document.createElement('li');
     const infoLink = document.createElement('a')
      const br = document.createElement('br');
-    listItem.textContent = `СОДЕРЖАНИЕ: ${note.context}`
+    listItem.textContent = `СОДЕРЖАНИЕ: ${note.content}`
     infoLink.textContent = `info`
     infoLink.href = `note.html?id=${note.id}`;
     console.log(infoLink.href);
