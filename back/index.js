@@ -2,8 +2,7 @@ const path = require('path');
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-//const db = require('./db');
-const db = require('./db.js')
+const db = require('./db')
 db.authenticate()
     .catch(error => console.error(error))
 const app = express();
