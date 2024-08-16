@@ -1,18 +1,9 @@
-const {Pool} = require('pg');
-// const pool = new Pool({
-//     user:"postgres",
-//     password:"1234",
-//     host:"localhost",
-//     port:5432,
-//     database:"notes_db"
-// })
-// module.exports = pool;
-console.log(process.env.DATABASE_URL)
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
-    // ssl: {
-    //     rejectUnauthorized: false
-    // }
+//const {Pool} = require('pg');
+const { Sequelize,Datatypes} =require('sequelize')
+require('dotenv').config()
+
+const sequelize = new Sequelize(  process.env.DATABASE_URL,{
+    dialect: 'postgres'
 });
 
 // Создание таблицы, если она не существует
@@ -25,8 +16,7 @@ context TEXT NOT NULL,
  );
 `;
 
-pool.query(createTableQuery)
-    .then(res => console.log('Table is successfully created'))
-    .catch(err => console.error('Error creating table', err.stack));
-
-module.exports = pool;
+// pool.query(createTableQuery)
+//     .then(res => console.log('Table is successfully created'))
+//     .catch(err => console.error('Error creating table', err.stack));
+module.exports = sequelize
