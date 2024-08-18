@@ -1,22 +1,26 @@
 const path = require('path');
-require('dotenv').config();
+ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const note = require('./models/note_model');
+const s = require('./sync')
+
 const db = require('./db')
-db.authenticate()
-    .catch(error => console.error(error))
 const app = express();
-app.use(cors());
 const PORT = process.env.PORT || 8080;
-app.use(express.json());// Парсинг JSON
 const noteRouter = require('./routes/note_route');
 const { all } = require("express/lib/application");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
+const Notes = require("./models/note_model");
+app.use(cors());
+db.authenticate()
+    .catch(error => console.error(error))
+db.sync()
+    .catch(error => console.error(error))
+// s.run().then(r => r);
+app.use(express.json());// Парсинг JSON
 app.use(express.urlencoded({ extended: true })); // Парсинг URL-encoded данных
 app.use(express.static(path.join(__dirname, '..', 'front', 'public')));
 app.use('/api', noteRouter);
-// app.get('/api/notes',(req, res) => {
-//      res.send("Privet");
-//})
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) });
