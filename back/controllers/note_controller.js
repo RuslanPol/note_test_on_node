@@ -16,11 +16,12 @@ class NoteController {
                  const newNote=await Notes.create
             ({
 
-                content: content,
-                status_note: status_note,
-                created_at: new Date().toISOString()
+                content: content.req.body,
+                status_note: status_note.req.body,
+                created_at: new Date()
             });
-                res.status(200).send(newNote);
+                //res.status(200).send(newNote);
+            res.json(newNote)
         }
         catch(err) {
             res.status(500).send('Server Error');

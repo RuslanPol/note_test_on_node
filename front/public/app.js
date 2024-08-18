@@ -13,7 +13,6 @@ form.addEventListener('submit', async (event) => {
         },
         body: JSON.stringify({content: text, status_note: noteStatus})
     });
-
     const newNote = await response.json();
     console.log(newNote)
     const listItem = document.createElement('li');
