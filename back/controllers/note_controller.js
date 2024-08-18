@@ -18,7 +18,7 @@ class NoteController {
 
                 content: content,
                 status_note: status_note,
-                created_at: new Date().getUTCDay(),
+                created_at: new Date().toISOString()
             });
                 res.status(200).send(newNote);
         }
