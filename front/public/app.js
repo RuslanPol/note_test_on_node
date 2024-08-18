@@ -23,6 +23,7 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     location.reload();
 
+
 });
 
 
@@ -56,6 +57,6 @@ async function loadNotes() {
     }
 }
 
-  loadNotes().then(r => r);
+    loadNotes().then(r =>console.log(r) )
 
 

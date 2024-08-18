@@ -2,21 +2,26 @@
 
 
 const db = require('../db');
-const Notes = require('../models/note_model');
+const Notes = require('../models/note_model.js');
 class NoteController {
 
 
     async createNote(req, res){
         const {content,status_note} = req.body;
         console.log(content);
+        if (!content || !status_note) {
+            return res.status(400).send('Content and status_note are required');
+        }
         try {
-           // const note =
-                await Notes.create({
+            console.log("я здесь")
+                 const newNote=await Notes.create
+            ({
+
                 content:content,
                 status_note: status_note,
                 created_at: new Date().toISOString(),
             });
-            //res.json(notes.rows[0]);
+                res.status(200).send(newNote);
         }
         catch(err){
             res.status(500).send('Server Error');

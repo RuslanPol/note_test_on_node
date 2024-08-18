@@ -11,7 +11,12 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());// Парсинг JSON
 const noteRouter = require('./routes/note_route');
 const { all } = require("express/lib/application");
+const req = require("express/lib/request");
+const res = require("express/lib/response");
 app.use(express.urlencoded({ extended: true })); // Парсинг URL-encoded данных
 app.use(express.static(path.join(__dirname, '..', 'front', 'public')));
 app.use('/api', noteRouter);
+// app.get('/api/notes',(req, res) => {
+//      res.send("Privet");
+//})
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) });
