@@ -21,26 +21,20 @@ form.addEventListener('submit', async (event) => {
     notesList.appendChild(listItem);
     form.reset();
     location.reload();
-
-
 });
 
-
- async function addNoteToList(note) {
+async function addNoteToList(note) {
     const listItem = document.createElement('li');
     const infoLink = document.createElement('a')
-     const br = document.createElement('br');
+    const br = document.createElement('br');
     listItem.textContent = `СОДЕРЖАНИЕ: ${note.content}`
     infoLink.textContent = `info`
     infoLink.href = `note.html?id=${note.id}`;
     console.log(infoLink.href);
-     listItem.appendChild(br);
+    listItem.appendChild(br);
     listItem.appendChild(infoLink);
     notesList.appendChild(listItem);
-
-
 }
-
 
 async function loadNotes() {
     const response = await fetch('/api/notes');
@@ -49,13 +43,13 @@ async function loadNotes() {
         const notes = await response.json();
         notesList.innerHTML = '';
         notes.forEach(note => {
-             addNoteToList(note);
+            addNoteToList(note);
         });
     } else {
         console.error('Ошибка при загрузке заметок:', response.statusText);
     }
 }
 
-     loadNotes().then(r => console.log(r));
+loadNotes().then(r => console.log(r));
 
 

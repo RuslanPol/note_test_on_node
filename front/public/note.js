@@ -29,7 +29,6 @@ buttonDel.addEventListener('click', async (event) => {
             'Content-Type': 'application/json'
         }
     });
-
     location.reload();
 });
 
@@ -68,6 +67,6 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     location.reload();
 });
-  loadNote().then(r => console.log(r));
+loadNote().then(r => console.log(r));
 
 

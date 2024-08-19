@@ -9,8 +9,8 @@ const run = async () => {
 
     } catch (error) {
         console.error('Не удалось создать таблицу:', error);
-      }finally {
-       await db.close();
-      }
+    } finally {
+        await db.close();
+    }
 };
 module.exports.run = run;
