@@ -1,14 +1,9 @@
-/*
-1. Комитишь и пушишь dev branch
-2. Переключаешься в master
-3. Кликаешь на dev --- > merge into master
-*/
+
 
 const { DataTypes } = require('sequelize')
 const db = require('../db')
 
 const Notes = db.define('notes',
-    // Описание таблиц
     {
         id: {
             type: DataTypes.INTEGER,

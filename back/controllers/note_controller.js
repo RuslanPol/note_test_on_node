@@ -1,6 +1,7 @@
 const sequelize = require('../db');
 const Notes = require('../models/note_model.js');
 const db = require("../db");
+const {where} = require("sequelize");
 class NoteController {
     async createNote(req, res) {
         const { content, status_note } = req.body;
@@ -37,8 +38,10 @@ class NoteController {
     async getOneNote(req, res) {
         const id = req.params.id;
         try {
-            const note = await db.query(`SELECT * FROM notes where id = $1`, [id]);
-            res.json(note.rows[0]);
+            const note = await Notes.findOne({
+                where: { id: id }
+            })
+             res.status(200).send(note);
         }
         catch (err) {
             res.status(500).send('Server Error');
@@ -46,12 +49,17 @@ class NoteController {
     }
 
     async updateNote(req, res) {
-        const { context, status_note } = req.body;
+        const { content, status_note } = req.body;
+        const id = req.params.id;
         try {
-            const note = await db.query(`UPDATE notes SET context=$1,status_note=$2 WHERE id = $3 RETURNING * `,
-                [context, status_note, req.params.id]);
+            const note = Notes.update({
+                content: content,
+                status_note: status_note
+            }, {
+                where: {id: id}
 
-            res.json(note.rows[0]);
+            })
+            res.status(200).send(note);
         }
         catch (err) {
             res.status(500).send('Server Error');
@@ -61,8 +69,9 @@ class NoteController {
     async deleteNote(req, res) {
         const id = req.params.id;
         try {
-            const note = await db.query(`DELETE FROM notes WHERE id = $1`, [id]);
-            res.json(note.rows[0]);
+            await Notes.destroy({
+                where: {id: id}
+            })
         }
         catch (err) {
             res.status(500).send('Server Error');

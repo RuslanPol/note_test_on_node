@@ -16,8 +16,9 @@ async function loadNote() {
            СОЗДАНА: ${note.created_at}
            \n`;
     div.appendChild(listItem)
+
 }
-//ВРЕМЯ СОЗДАНИЯ:${note.created_at}
+
 const button = document.getElementById('but')
 const buttonDel = document.getElementById('butDel')
 buttonDel.addEventListener('click', async (event) => {
@@ -28,6 +29,7 @@ buttonDel.addEventListener('click', async (event) => {
             'Content-Type': 'application/json'
         }
     });
+
     location.reload();
 });
 
@@ -53,7 +55,6 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = document.getElementById('noteText').value;
     const noteStatus = document.getElementById('noteStatus').value;
-
     const response = await fetch(`/api/notes/${noteId}`, {
         method: 'PUT',
         headers: {
@@ -67,6 +68,6 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     location.reload();
 });
-loadNote();
+  loadNote().then(r => console.log(r));
 
 

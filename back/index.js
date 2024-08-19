@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const note = require('./models/note_model');
-const s = require('./sync')
+
 
 const db = require('./db')
 const app = express();
@@ -14,10 +14,13 @@ const req = require("express/lib/request");
 const res = require("express/lib/response");
 const Notes = require("./models/note_model");
 app.use(cors());
+
 db.authenticate()
     .catch(error => console.error(error))
-db.sync({force: true})
+
+db.sync()
     .catch(error => console.error(error))
+
 
 app.use(express.json());// Парсинг JSON
 app.use(express.urlencoded({ extended: true })); // Парсинг URL-encoded данных

@@ -56,6 +56,6 @@ async function loadNotes() {
     }
 }
 
-    loadNotes().then(r =>console.log(r) )
+     loadNotes().then(r => console.log(r));
 
 
