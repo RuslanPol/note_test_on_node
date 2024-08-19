@@ -1,20 +1,34 @@
 # Локальный сервер и БД
-1. установить postgreSQL
-2. войти в папку postgreSQL папку .bin
-3. открыть PowerShell
-4. PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres
-5. Пароль пользователя postgres:(пароль от postgres в db.js файле)
-6. postgres=# create database notes_db;
-7. postgres=# \l
-8. postgres=# \connect notes_db;
-9. notes_db=# \dt
-10. Прописываем в терминале: npm run start
-11. Прописываем в браузере:
-  'http://localhost:8080/index.html'
+* Открываем терминал в среде разработки
+* Прописываем в терминале:
+*   npm init -y 
+*   npm install express pg
+*   npm install sequelize
+*   npm install pg pg-hstore
+
+* создать в корне проекта файл .env =>(
+  DATABASE_URL = 'postgres://postgres:somepasswor@localhost:5432/somedatabase'
+# psomepassword  пароль  заданный в postgreSQL
+# somedatabase  название созданной БД
+  )
+
+* установить postgreSQL
+* войти в папку postgreSQL папку .bin
+* открыть PowerShell
+* PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres
+* Пароль пользователя postgres:(пароль от postgres в db.js файле)
+* postgres=# create database somedatabase;
+* postgres=# \l
+* postgres=# \connect somedatabase; 
+* somedatabase=# \dt
+# запускаем сервер в терминале : node index.js
+* Прописываем в браузере:  'http://localhost:8080/index.html'
+ 
 
 
-#  На Render.com
-*  ссылка на сервер на Render.com https://note-test-on-node.onrender.com
+#  На удаленном сервере  Render.com
+
+# ссылка на  приложение развернутое на сервере  Render.com https://note-test-on-node.onrender.com
 *  Шаг 1: Создание аккаунта на Render.com  
 Зарегистрируйтесь на Render.com, если у вас еще нет аккаунта.
 
