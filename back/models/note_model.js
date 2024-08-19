@@ -26,7 +26,6 @@ const Notes = db.define('notes',
         },
         created_at: {
             type: DataTypes.DATE,
-            // type: DataTypes.TIME,
             allowNull: false
         },
 

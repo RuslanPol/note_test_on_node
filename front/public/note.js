@@ -13,7 +13,7 @@ async function loadNote() {
         `id: ${note.id}
            СОДЕРЖАНИЕ: ${note.content}
            СТАТУС: ${note.status_note}
-         
+           СОЗДАНА: ${note.created_at}
            \n`;
     div.appendChild(listItem)
 }

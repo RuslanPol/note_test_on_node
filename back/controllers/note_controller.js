@@ -8,10 +8,6 @@ class NoteController {
             return res.status(400).send('Content and status_note are required');
         }
         try {
-            console.log("я здесь")
-            // const newNote = await db.query(`INSERT INTO notes (content,created_at,status_note) VALUES ($1,$2,NOW())
-            //                             RETURNING *`, [content,status_note]);
-
             const note = {
                 content: content,
                 status_note: status_note,
@@ -19,7 +15,7 @@ class NoteController {
             }
             const newNote = await Notes.create(note)
             res.status(200).send(newNote);
-            //res.json(newNote)
+
         }
         catch (err) {
             console.log('Ошибка при создании note\n', err)
