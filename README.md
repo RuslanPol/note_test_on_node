@@ -8,8 +8,8 @@
 
 * создать в корне проекта файл .env =>(
   DATABASE_URL = 'postgres://postgres:somepasswor@localhost:5432/somedatabase'
-# psomepassword  пароль  заданный в postgreSQL
-# somedatabase  название созданной БД
+* somepassword - пароль  заданный в postgreSQL
+* somedatabase - название созданной БД
   )
 
 * установить postgreSQL
@@ -21,14 +21,15 @@
 * postgres=# \l
 * postgres=# \connect somedatabase; 
 * somedatabase=# \dt
-# запускаем сервер в терминале : node index.js
+* запускаем сервер в терминале : node index.js
 * Прописываем в браузере:  'http://localhost:8080/index.html'
  
 
 
 #  На удаленном сервере  Render.com
 
-# ссылка на  приложение развернутое на сервере  Render.com https://note-test-on-node.onrender.com
+* ссылка на  приложение развернутое на сервере: Render.com
+* https://note-test-on-node.onrender.com
 *  Шаг 1: Создание аккаунта на Render.com  
 Зарегистрируйтесь на Render.com, если у вас еще нет аккаунта.
 
