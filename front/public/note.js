@@ -1,8 +1,8 @@
 const p = document.createElement('p');
 const url = new URL(window.location.href);
 const noteId = url.searchParams.get('id');
-const form = document.getElementById('noteForm1');
-const div = document.getElementById('div1');
+const form = document.getElementById('noteForm1'); //fixme
+const div = document.getElementById('div1'); //fixme
 
 async function loadNote() {
     const response = await fetch(`/api/notes/${noteId}`);
@@ -13,10 +13,11 @@ async function loadNote() {
         `id: ${note.id}
            СОДЕРЖАНИЕ: ${note.content}
            СТАТУС: ${note.status_note}
-           ВРЕМЯ СОЗДАНИЯ:${note.created_at}\n`;
+         
+           \n`;
     div.appendChild(listItem)
 }
-
+//ВРЕМЯ СОЗДАНИЯ:${note.created_at}
 const button = document.getElementById('but')
 const buttonDel = document.getElementById('butDel')
 buttonDel.addEventListener('click', async (event) => {

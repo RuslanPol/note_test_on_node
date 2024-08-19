@@ -23,11 +23,11 @@ app.use(express.json());// Парсинг JSON
 app.use(express.urlencoded({ extended: true })); // Парсинг URL-encoded данных
 app.use(express.static(path.join(__dirname, '..', 'front', 'public')));
 app.use('/api', noteRouter);
-app.post('api/notes', (req, res) => {
-  Notes.create({
-   content: "dddd",
-   status_note: "hfhfhfh",
-   created_at: new Date.now(),
-  }).then( r =>console.log('ghjididid'))
-})
+// app.post('api/notes', (req, res) => {
+//   Notes.create({
+//    content: "dddd",
+//    status_note: "hfhfhfh",
+//    created_at: new Date.now(),
+//   }).then( r =>console.log('ghjididid'))
+// })
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) });
